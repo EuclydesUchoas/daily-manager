@@ -43,5 +43,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DailyManager.Domain\DailyManager.Domain.csproj">
+      <Project>{7cb20cd2-b5fc-46a1-a755-b54b07c12efd}</Project>
+      <Name>DailyManager.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

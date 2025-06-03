@@ -4,7 +4,7 @@ namespace DailyManager.UI
 {
     internal static class DependencyInjection
     {
-        public static void RegisterUIServices(this IServiceCollection serviceDescriptors)
+        internal static void RegisterUIServices(this IServiceCollection serviceDescriptors)
         {
             serviceDescriptors.RegisterForms();
         }
