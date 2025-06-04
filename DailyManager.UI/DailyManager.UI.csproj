@@ -61,7 +61,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DependencyInjection.cs" />
+    <Compile Include="Forms\TestAnnotations\TestAnnotationListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TestAnnotations\TestAnnotationListForm.Designer.cs">
+      <DependentUpon>TestAnnotationListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +79,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\TestAnnotations\TestAnnotationListForm.resx">
+      <DependentUpon>TestAnnotationListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -98,11 +113,16 @@
       <Project>{428aa2a4-2255-4649-8a13-f97cb60d24e6}</Project>
       <Name>DailyManager.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DailyManager.Domain\DailyManager.Domain.csproj">
+      <Project>{1c2ce813-ad1b-4181-a8c6-537208c2ca44}</Project>
+      <Name>DailyManager.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DailyManager.Infrastructure\DailyManager.Infrastructure.csproj">
       <Project>{843b6c52-820b-4c3c-992d-8eef2594c455}</Project>
       <Name>DailyManager.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(SolutionDir)DailyManager.Infrastructure\bin\$(Configuration)\x86" "$(TargetDir)x86" /E /Y /I

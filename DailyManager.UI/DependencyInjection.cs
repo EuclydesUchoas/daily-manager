@@ -1,17 +1,23 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using DailyManager.UI.Forms.TestAnnotations;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DailyManager.UI
 {
     internal static class DependencyInjection
     {
-        internal static void RegisterUIServices(this IServiceCollection services)
+        internal static IServiceCollection RegisterUIServices(this IServiceCollection services)
         {
             services.RegisterForms();
+
+            return services;
         }
 
-        private static void RegisterForms(this IServiceCollection services)
+        private static IServiceCollection RegisterForms(this IServiceCollection services)
         {
             services.AddSingleton<MainForm>();
+            services.AddSingleton<TestAnnotationListForm>();
+
+            return services;
         }
     }
 }

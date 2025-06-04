@@ -1,5 +1,7 @@
-﻿using DailyManager.Infrastructure.Database;
+﻿using DailyManager.Domain.Repositories.TestAnnotations;
+using DailyManager.Infrastructure.Database;
 using DailyManager.Infrastructure.Database.Factory;
+using DailyManager.Infrastructure.Repositories;
 using FluentMigrator.Runner;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -7,23 +9,35 @@ namespace DailyManager.Infrastructure
 {
     public static class DependencyInjection
     {
-        public static void RegisterInfrastructureServices(this IServiceCollection services)
+        public static IServiceCollection RegisterInfrastructureServices(this IServiceCollection services)
         {
             services.AddSingleton<IDatabaseFactory, DatabaseFactory>();
 
+            services.RegisterRepositories();
             services.RegisterMigrationRunner();
+
+            return services;
         }
 
-        private static void RegisterMigrationRunner(this IServiceCollection serviceDescriptors)
+        private static IServiceCollection RegisterRepositories(this IServiceCollection services)
+        {
+            services.AddSingleton<ITestAnnotationRepository, TesteAnnotationRepository>();
+
+            return services;
+        }
+
+        private static IServiceCollection RegisterMigrationRunner(this IServiceCollection services)
         {
             string connectionString = DatabaseHelper.GetConnectionString();
 
-            serviceDescriptors.AddFluentMigratorCore()
+            services.AddFluentMigratorCore()
                 .ConfigureRunner(x => x
                     .AddSQLite()
                     .WithGlobalConnectionString(connectionString)
                     .ScanIn(typeof(DependencyInjection).Assembly).For.Migrations())
                 .AddLogging(x => x.AddFluentMigratorConsole());
+
+            return services;
         }
     }
 }

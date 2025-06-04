@@ -1,8 +1,9 @@
-﻿using DailyManager.Infrastructure;
+﻿using DailyManager.Application;
+using DailyManager.Infrastructure;
 using DailyManager.Infrastructure.Database.Factory;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Windows.Forms;
+using WinForms = System.Windows.Forms;
 
 namespace DailyManager.UI
 {
@@ -14,22 +15,40 @@ namespace DailyManager.UI
         [STAThread]
         static void Main()
         {
-            var services = new ServiceCollection();
+            WinForms.Application.EnableVisualStyles();
+            WinForms.Application.SetCompatibleTextRenderingDefault(false);
 
-            services.RegisterUIServices();
-            services.RegisterInfrastructureServices();
+            var services = RegisterServices();
 
             var serviceProvider = services.BuildServiceProvider();
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            
-            var databaseFactory = serviceProvider.GetRequiredService<IDatabaseFactory>();
-            databaseFactory.RunMigrations(migrateUp: true);
+            ExecuteDatabaseFactory(serviceProvider);
 
             var mainForm = serviceProvider.GetRequiredService<MainForm>();
 
-            Application.Run(mainForm);
+            WinForms.Application.Run(mainForm);
+        }
+
+        private static IServiceCollection RegisterServices()
+        {
+            var services = new ServiceCollection();
+
+            services
+                .RegisterApplicationServices()
+                .RegisterInfrastructureServices()
+                .RegisterUIServices();
+
+            return services;
+        }
+
+        private static void ExecuteDatabaseFactory(IServiceProvider serviceProvider)
+        {
+            var databaseFactory = serviceProvider.GetRequiredService<IDatabaseFactory>();
+
+            databaseFactory.TestConnection();
+            databaseFactory.TestDapper();
+
+            databaseFactory.RunMigrations(migrateUp: true);
         }
     }
 }

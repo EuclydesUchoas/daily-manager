@@ -1,4 +1,5 @@
-﻿using FluentMigrator.Runner;
+﻿using Dapper;
+using FluentMigrator.Runner;
 using FluentMigrator.Runner.Exceptions;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -44,6 +45,38 @@ namespace DailyManager.Infrastructure.Database.Factory
                     if (!(ex is MissingMigrationsException))
                         throw;
                 }
+            }
+        }
+
+        public bool TestConnection()
+        {
+            try
+            {
+                using (var connection = GetDatabaseConnection())
+                {
+                    connection.Open();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool TestDapper()
+        {
+            try
+            {
+                using (var connection = GetDatabaseConnection())
+                {
+                    var result = connection.QueryFirstOrDefault<int?>("SELECT 1");
+                    return result.HasValue && result.Value is 1;
+                }
+            }
+            catch
+            {
+                return false;
             }
         }
     }
