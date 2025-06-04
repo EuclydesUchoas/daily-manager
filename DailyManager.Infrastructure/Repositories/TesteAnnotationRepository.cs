@@ -2,6 +2,7 @@
 using DailyManager.Domain.Repositories.TestAnnotations;
 using DailyManager.Infrastructure.Database.Factory;
 using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -23,9 +24,23 @@ namespace DailyManager.Infrastructure.Repositories
 
             using (var conn = _databaseFactory.GetDatabaseConnection())
             {
-                const string sql = "INSERT INTO TestAnnotations (Name, Description, CreatedAt) VALUES (@Name, @Description, @CreatedAt)";
+                const string sql = "INSERT INTO TestAnnotations (Id, Name, Description, CreatedAt) VALUES (@Id, @Name, @Description, @CreatedAt)";
 
                 await conn.ExecuteAsync(sql, testAnnotation);
+            }
+        }
+
+        public async Task<TestAnnotation> GetById(Guid id, CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            using (var conn = _databaseFactory.GetDatabaseConnection())
+            {
+                const string sql = "SELECT * FROM TestAnnotations WHERE Id = @Id";
+
+                var testAnnotations = await conn.QueryFirstOrDefaultAsync<TestAnnotation>(sql, new { Id = id });
+
+                return testAnnotations;
             }
         }
 
@@ -37,7 +52,7 @@ namespace DailyManager.Infrastructure.Repositories
             {
                 const string sql = "SELECT * FROM TestAnnotations";
 
-                var testAnnotations = await conn.QueryAsync<TestAnnotation>(sql, cancellationToken);
+                var testAnnotations = await conn.QueryAsync<TestAnnotation>(sql);
 
                 return testAnnotations;
             }

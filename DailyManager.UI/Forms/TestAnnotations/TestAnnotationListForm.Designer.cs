@@ -48,6 +48,7 @@
             this.dataGridViewTestAnnotationList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTestAnnotationList.Size = new System.Drawing.Size(776, 426);
             this.dataGridViewTestAnnotationList.TabIndex = 0;
+            this.dataGridViewTestAnnotationList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTestAnnotationList_CellDoubleClick);
             // 
             // ColumnName
             // 

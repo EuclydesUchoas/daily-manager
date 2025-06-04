@@ -8,7 +8,7 @@ namespace DailyManager.Infrastructure.Database.Migrations
         public override void Up()
         {
             Create.Table("TestAnnotations")
-                .WithColumn("Id").AsInt32().PrimaryKey().Identity()
+                .WithColumn("Id").AsGuid().PrimaryKey()
                 .WithColumn("Name").AsString(100).NotNullable()
                 .WithColumn("Description").AsString(5000).Nullable()
                 .WithColumn("CreatedAt").AsDateTime().NotNullable().WithDefault(SystemMethods.CurrentUTCDateTime);

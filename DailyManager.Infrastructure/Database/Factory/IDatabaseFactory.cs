@@ -1,4 +1,4 @@
-﻿using System.Data.Common;
+﻿using System.Data;
 
 namespace DailyManager.Infrastructure.Database.Factory
 {
@@ -14,7 +14,7 @@ namespace DailyManager.Infrastructure.Database.Factory
         /// Gets a database connection.
         /// </summary>
         /// <returns>A database connection.</returns>
-        DbConnection GetDatabaseConnection();
+        IDbConnection GetDatabaseConnection();
 
         /// <summary>
         /// Runs database migrations.

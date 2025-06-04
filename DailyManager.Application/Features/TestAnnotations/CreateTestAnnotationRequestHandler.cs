@@ -33,6 +33,7 @@ namespace DailyManager.Application.Features.TestAnnotations
 
             ValidationFailedException.ThrowIfValidationResultIsNotValid(result);
 
+            testAnnotation.Id = Guid.NewGuid();
             testAnnotation.CreatedAt = DateTime.UtcNow;
 
             await _testAnnotationRepository.Create(testAnnotation, cancellationToken);

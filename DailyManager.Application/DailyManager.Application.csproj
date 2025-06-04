@@ -66,6 +66,8 @@
     <Compile Include="Exceptions\ValidationFailedException.cs" />
     <Compile Include="Features\TestAnnotations\GetAllTestAnnotationBasicRequest.cs" />
     <Compile Include="Features\TestAnnotations\GetAllTestAnnotationBasicRequestHandler.cs" />
+    <Compile Include="Features\TestAnnotations\GetTestAnnotationByIdRequestHandler.cs" />
+    <Compile Include="Features\TestAnnotations\GetTestAnnotationByIdRequest.cs" />
     <Compile Include="Features\TestAnnotations\GetAllTestAnnotationRequestHandler.cs" />
     <Compile Include="Features\TestAnnotations\GetAllTestAnnotationRequest.cs" />
     <Compile Include="Features\TestAnnotations\CreateTestAnnotationRequestHandler.cs" />

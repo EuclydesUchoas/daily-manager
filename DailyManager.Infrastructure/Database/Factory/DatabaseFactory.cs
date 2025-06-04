@@ -3,20 +3,40 @@ using FluentMigrator.Runner;
 using FluentMigrator.Runner.Exceptions;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Data.Common;
+using System.Data;
 using System.Data.SQLite;
+using System.IO;
 
 namespace DailyManager.Infrastructure.Database.Factory
 {
     internal sealed class DatabaseFactory : IDatabaseFactory
     {
         private readonly string _connectionString;
+        private readonly string _dataSource;
         private readonly IServiceScopeFactory _serviceScopeFactory;
 
         public DatabaseFactory(IServiceScopeFactory serviceScopeFactory)
         {
-            _connectionString = DatabaseHelper.GetConnectionString();
+            string connectionString = DatabaseHelper.GetConnectionString();
+            string dataSource = DatabaseHelper.GetDataSource();
+
+            _connectionString = connectionString;
+            _dataSource = dataSource;
             _serviceScopeFactory = serviceScopeFactory;
+
+            CreateDatabaseDirectoryIfNotExists();
+        }
+
+        private void CreateDatabaseDirectoryIfNotExists()
+        {
+            if (!File.Exists(_dataSource))
+            {
+                var directory = Path.GetDirectoryName(_dataSource);
+                if (!string.IsNullOrWhiteSpace(directory) && !Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+            }
         }
 
         public string GetConnectionString()
@@ -24,7 +44,7 @@ namespace DailyManager.Infrastructure.Database.Factory
             return _connectionString;
         }
 
-        public DbConnection GetDatabaseConnection()
+        public IDbConnection GetDatabaseConnection()
         {
             return new SQLiteConnection(_connectionString);
         }

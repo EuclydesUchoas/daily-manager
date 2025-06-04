@@ -17,6 +17,7 @@ namespace DailyManager.UI
         {
             services.AddSingleton<MainForm>();
             services.AddSingleton<TestAnnotationListForm>();
+            services.AddSingleton<RegisterTestAnnotationForm>();
             
             return services;
         }
