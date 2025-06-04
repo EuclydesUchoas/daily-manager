@@ -1,6 +1,7 @@
 ﻿using DailyManager.Application;
 using DailyManager.Infrastructure;
 using DailyManager.Infrastructure.Database.Factory;
+using DailyManager.UI.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using WinForms = System.Windows.Forms;

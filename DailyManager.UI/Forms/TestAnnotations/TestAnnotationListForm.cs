@@ -1,8 +1,6 @@
 ﻿using DailyManager.Application.Features.TestAnnotations;
 using DailyManager.Application.Meditator;
 using System;
-using System.Collections.Generic;
-using System.Net.Http;
 
 namespace DailyManager.UI.Forms.TestAnnotations
 {
@@ -20,9 +18,6 @@ namespace DailyManager.UI.Forms.TestAnnotations
         private void TestAnnotationListForm_Load(object sender, EventArgs e)
         {
             LoadTestAnnotations();
-            System.Net.Http.J
-            var response = new HttpClient().GetAsync("todos").Result;
-            var todos = response.Content.ReadFromJsonAsync<List<int>>();
         }
 
         private async void LoadTestAnnotations()

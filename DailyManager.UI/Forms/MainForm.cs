@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows.Forms;
 
-namespace DailyManager.UI
+namespace DailyManager.UI.Forms
 {
     public partial class MainForm : AppForm
     {

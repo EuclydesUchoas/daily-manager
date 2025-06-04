@@ -1,4 +1,4 @@
-﻿namespace DailyManager.UI
+﻿namespace DailyManager.UI.Forms
 {
     partial class MainForm
     {
