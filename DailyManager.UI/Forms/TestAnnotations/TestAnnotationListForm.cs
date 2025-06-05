@@ -23,6 +23,11 @@ namespace DailyManager.UI.Forms.TestAnnotations
         private void TestAnnotationListForm_Load(object sender, EventArgs e)
         {
             LoadTestAnnotations();
+
+            //dataGridViewTestAnnotationList.EnableHeadersVisualStyles = false;
+            //dataGridViewTestAnnotationList.ColumnHeadersDefaultCellStyle.SelectionBackColor = dataGridViewTestAnnotationList.ColumnHeadersDefaultCellStyle.BackColor;
+
+            //dataGridViewTestAnnotationList.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromKnownColor(KnownColor.Control);
         }
 
         private async void LoadTestAnnotations()
@@ -37,6 +42,11 @@ namespace DailyManager.UI.Forms.TestAnnotations
 
         private void DataGridViewTestAnnotationList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
             var testAnnotationBasic = dataGridViewTestAnnotationList.SelectedRows[0].DataBoundItem as TestAnnotationBasic;
 
             UpdateTestAnnotation(testAnnotationBasic);
