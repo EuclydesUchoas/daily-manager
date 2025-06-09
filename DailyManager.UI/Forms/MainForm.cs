@@ -1,6 +1,7 @@
 ﻿using DailyManager.Application.Exceptions;
 using DailyManager.Application.Features.TestAnnotations;
 using DailyManager.Application.Meditator;
+using DailyManager.UI.Forms.Settings;
 using DailyManager.UI.Forms.TestAnnotations;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -23,8 +24,8 @@ namespace DailyManager.UI.Forms
 
         private void ClearFields()
         {
-            textBoxName.Clear();
-            textBoxDescription.Clear();
+            // textBoxName.Clear();
+            // textBoxDescription.Clear();
         }
 
         private void ButtonRegister_Click(object sender, EventArgs e)
@@ -36,8 +37,8 @@ namespace DailyManager.UI.Forms
         {
             var request = new CreateTestAnnotationRequest
             {
-                Name = textBoxName.Text,
-                Description = textBoxDescription.Text,
+                Name = string.Empty,// textBoxName.Text,
+                Description = string.Empty,// textBoxDescription.Text,
             };
 
             try
@@ -61,6 +62,13 @@ namespace DailyManager.UI.Forms
             var testAnnotationListForm = _serviceProvider.GetRequiredService<TestAnnotationListForm>();
 
             testAnnotationListForm.ShowDialog(this);
+        }
+
+        private void ButtonSettings_Click(object sender, EventArgs e)
+        {
+            var settingsForm = _serviceProvider.GetRequiredService<SettingsForm>();
+
+            settingsForm.ShowDialog(this);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DailyManager.UI.Forms;
+using DailyManager.UI.Forms.Settings;
 using DailyManager.UI.Forms.TestAnnotations;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,6 +19,7 @@ namespace DailyManager.UI
             services.AddSingleton<MainForm>();
             services.AddSingleton<TestAnnotationListForm>();
             services.AddSingleton<RegisterTestAnnotationForm>();
+            services.AddSingleton<SettingsForm>();
             
             return services;
         }

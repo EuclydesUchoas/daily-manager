@@ -28,79 +28,113 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonRegister = new System.Windows.Forms.Button();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.labelName = new System.Windows.Forms.Label();
-            this.buttonClose = new System.Windows.Forms.Button();
-            this.labelDescription = new System.Windows.Forms.Label();
-            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.buttonSettings = new System.Windows.Forms.Button();
+            this.labelCreatorInfo = new System.Windows.Forms.Label();
+            this.labelVersionInfo = new System.Windows.Forms.Label();
+            this.groupBoxDaily = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonCreateDaily = new System.Windows.Forms.Button();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxDaily.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonRegister
+            // buttonSettings
             // 
-            this.buttonRegister.Location = new System.Drawing.Point(219, 156);
-            this.buttonRegister.Name = "buttonRegister";
-            this.buttonRegister.Size = new System.Drawing.Size(75, 23);
-            this.buttonRegister.TabIndex = 0;
-            this.buttonRegister.Text = "Register";
-            this.buttonRegister.UseVisualStyleBackColor = true;
-            this.buttonRegister.Click += new System.EventHandler(this.ButtonRegister_Click);
+            this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonSettings.Image = global::DailyManager.UI.Properties.Resources.settings;
+            this.buttonSettings.Location = new System.Drawing.Point(12, 514);
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(35, 35);
+            this.buttonSettings.TabIndex = 0;
+            this.buttonSettings.UseVisualStyleBackColor = true;
+            this.buttonSettings.Click += new System.EventHandler(this.ButtonSettings_Click);
             // 
-            // textBoxName
+            // labelCreatorInfo
             // 
-            this.textBoxName.Location = new System.Drawing.Point(81, 12);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(130, 20);
-            this.textBoxName.TabIndex = 1;
+            this.labelCreatorInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelCreatorInfo.AutoSize = true;
+            this.labelCreatorInfo.Location = new System.Drawing.Point(428, 514);
+            this.labelCreatorInfo.Name = "labelCreatorInfo";
+            this.labelCreatorInfo.Size = new System.Drawing.Size(144, 13);
+            this.labelCreatorInfo.TabIndex = 1;
+            this.labelCreatorInfo.Text = "Created by Euclydes Uchoas";
             // 
-            // labelName
+            // labelVersionInfo
             // 
-            this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(12, 15);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(38, 13);
-            this.labelName.TabIndex = 2;
-            this.labelName.Text = "Name:";
+            this.labelVersionInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelVersionInfo.AutoSize = true;
+            this.labelVersionInfo.Location = new System.Drawing.Point(494, 536);
+            this.labelVersionInfo.Name = "labelVersionInfo";
+            this.labelVersionInfo.Size = new System.Drawing.Size(78, 13);
+            this.labelVersionInfo.TabIndex = 2;
+            this.labelVersionInfo.Text = "Version 1.0.0.0";
             // 
-            // buttonClose
+            // groupBoxDaily
             // 
-            this.buttonClose.Location = new System.Drawing.Point(300, 156);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 23);
-            this.buttonClose.TabIndex = 3;
-            this.buttonClose.Text = "Close";
-            this.buttonClose.UseVisualStyleBackColor = true;
-            this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
+            this.groupBoxDaily.Controls.Add(this.button1);
+            this.groupBoxDaily.Controls.Add(this.buttonCreateDaily);
+            this.groupBoxDaily.Location = new System.Drawing.Point(12, 89);
+            this.groupBoxDaily.Name = "groupBoxDaily";
+            this.groupBoxDaily.Size = new System.Drawing.Size(270, 100);
+            this.groupBoxDaily.TabIndex = 3;
+            this.groupBoxDaily.TabStop = false;
+            this.groupBoxDaily.Text = "Daily";
             // 
-            // labelDescription
+            // button1
             // 
-            this.labelDescription.AutoSize = true;
-            this.labelDescription.Location = new System.Drawing.Point(12, 41);
-            this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(63, 13);
-            this.labelDescription.TabIndex = 5;
-            this.labelDescription.Text = "Description:";
+            this.button1.Location = new System.Drawing.Point(99, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Daily List";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBoxDescription
+            // buttonCreateDaily
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(81, 38);
-            this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(250, 20);
-            this.textBoxDescription.TabIndex = 4;
+            this.buttonCreateDaily.Location = new System.Drawing.Point(99, 19);
+            this.buttonCreateDaily.Name = "buttonCreateDaily";
+            this.buttonCreateDaily.Size = new System.Drawing.Size(75, 23);
+            this.buttonCreateDaily.TabIndex = 0;
+            this.buttonCreateDaily.Text = "Create Daily";
+            this.buttonCreateDaily.UseVisualStyleBackColor = true;
+            // 
+            // labelTitle
+            // 
+            this.labelTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Location = new System.Drawing.Point(0, 0);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(584, 37);
+            this.labelTitle.TabIndex = 4;
+            this.labelTitle.Text = "DAILY MANAGER";
+            this.labelTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(302, 89);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(270, 100);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 191);
-            this.Controls.Add(this.labelDescription);
-            this.Controls.Add(this.textBoxDescription);
-            this.Controls.Add(this.buttonClose);
-            this.Controls.Add(this.labelName);
-            this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.buttonRegister);
+            this.ClientSize = new System.Drawing.Size(584, 561);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.labelTitle);
+            this.Controls.Add(this.groupBoxDaily);
+            this.Controls.Add(this.labelVersionInfo);
+            this.Controls.Add(this.labelCreatorInfo);
+            this.Controls.Add(this.buttonSettings);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Daily Manager";
+            this.groupBoxDaily.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,12 +142,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonRegister;
-        private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.Button buttonClose;
-        private System.Windows.Forms.Label labelDescription;
-        private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.Button buttonSettings;
+        private System.Windows.Forms.Label labelCreatorInfo;
+        private System.Windows.Forms.Label labelVersionInfo;
+        private System.Windows.Forms.GroupBox groupBoxDaily;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button buttonCreateDaily;
+        private System.Windows.Forms.Button button1;
     }
 }
 
