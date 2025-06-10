@@ -57,5 +57,19 @@ namespace DailyManager.Infrastructure.Repositories.Companies
                 return companies;
             }
         }
+
+        public async Task<bool> ExistsById(Guid id, CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            using (var conn = _databaseFactory.GetDatabaseConnection())
+            {
+                const string sql = "SELECT EXISTS (SELECT 1 FROM Companies WHERE Id = @Id)";
+
+                var exists = await conn.ExecuteScalarAsync<bool>(sql, new { Id = id });
+
+                return exists;
+            }
+        }
     }
 }

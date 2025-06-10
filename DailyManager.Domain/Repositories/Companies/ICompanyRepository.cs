@@ -12,5 +12,7 @@ namespace DailyManager.Domain.Repositories.Companies
 
         Task<Company> GetById(Guid id, CancellationToken cancellationToken = default);
         Task<IEnumerable<Company>> GetAll(CancellationToken cancellationToken = default);
+
+        Task<bool> ExistsById(Guid id, CancellationToken cancellationToken = default);
     }
 }
