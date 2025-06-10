@@ -19,9 +19,9 @@ namespace DailyManager.Application
 
         private static IServiceCollection AddMediator(this IServiceCollection services)
         {
-            var assembly = Assembly.GetExecutingAssembly();
-
             services.AddSingleton<ISender, Sender>();
+
+            var assembly = Assembly.GetExecutingAssembly();
 
             var handlerInterfaceVoid = typeof(IRequestHandler<>);
             var handlerInterfaceReturn = typeof(IRequestHandler<,>);

@@ -137,6 +137,7 @@
             this.buttonCompanyList.TabIndex = 3;
             this.buttonCompanyList.Text = "Company List";
             this.buttonCompanyList.UseVisualStyleBackColor = false;
+            this.buttonCompanyList.Click += new System.EventHandler(this.ButtonCompanyList_Click);
             // 
             // buttonCreateCompany
             // 
@@ -147,6 +148,7 @@
             this.buttonCreateCompany.TabIndex = 2;
             this.buttonCreateCompany.Text = "Create Company";
             this.buttonCreateCompany.UseVisualStyleBackColor = false;
+            this.buttonCreateCompany.Click += new System.EventHandler(this.ButtonCreateCompany_Click);
             // 
             // MainForm
             // 

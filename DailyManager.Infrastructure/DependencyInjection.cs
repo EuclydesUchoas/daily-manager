@@ -1,6 +1,10 @@
-﻿using DailyManager.Domain.Repositories.TestAnnotations;
+﻿using DailyManager.Domain.Repositories.Companies;
+using DailyManager.Domain.Repositories.Dailies;
+using DailyManager.Domain.Repositories.TestAnnotations;
 using DailyManager.Infrastructure.Database;
 using DailyManager.Infrastructure.Database.Factory;
+using DailyManager.Infrastructure.Repositories.Companies;
+using DailyManager.Infrastructure.Repositories.Dailies;
 using DailyManager.Infrastructure.Repositories.TestAnnotations;
 using FluentMigrator.Runner;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +26,10 @@ namespace DailyManager.Infrastructure
         private static IServiceCollection RegisterRepositories(this IServiceCollection services)
         {
             services.AddSingleton<ITestAnnotationRepository, TestAnnotationRepository>();
+
+            services.AddSingleton<ICompanyRepository, CompanyRepository>();
+
+            services.AddSingleton<IDailyRepository, DailyRepository>();
 
             return services;
         }

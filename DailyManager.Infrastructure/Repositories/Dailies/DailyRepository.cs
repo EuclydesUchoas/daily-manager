@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DailyManager.Infrastructure.Repositories.Companies
+namespace DailyManager.Infrastructure.Repositories.Dailies
 {
     public sealed class DailyRepository : IDailyRepository
     {
