@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Companies\" />
+    <Folder Include="Forms\Dailies\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\settings.png" />

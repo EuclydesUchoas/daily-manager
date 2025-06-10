@@ -1,72 +1,46 @@
-﻿using DailyManager.Application.Exceptions;
-using DailyManager.Application.Features.TestAnnotations;
-using DailyManager.Application.Meditator;
-using DailyManager.UI.Forms.Settings;
+﻿using DailyManager.UI.Forms.Settings;
 using DailyManager.UI.Forms.TestAnnotations;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Windows.Forms;
 
 namespace DailyManager.UI.Forms
 {
     public partial class MainForm : AppForm
     {
         private readonly IServiceProvider _serviceProvider;
-        private readonly ISender _sender;
 
-        public MainForm(IServiceProvider serviceProvider, ISender sender)
+        public MainForm(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
-            _sender = sender;
 
             InitializeComponent();
         }
 
-        private void ClearFields()
+        private RegisterTestAnnotationForm _registerTestAnnotationForm;
+        private void ButtonCreateDaily_Click(object sender, EventArgs e)
         {
-            // textBoxName.Clear();
-            // textBoxDescription.Clear();
+            var registerTestAnnotationForm = _registerTestAnnotationForm ??
+                (_registerTestAnnotationForm = _serviceProvider.GetRequiredService<RegisterTestAnnotationForm>());
+
+            registerTestAnnotationForm.PrepareToCreate();
+
+            registerTestAnnotationForm.ShowDialog(this);
         }
 
-        private void ButtonRegister_Click(object sender, EventArgs e)
+        private TestAnnotationListForm _testAnnotationListForm;
+        private void ButtonDailyList_Click(object sender, EventArgs e)
         {
-            RegisterTestAnnotation();
-        }
-
-        private async void RegisterTestAnnotation()
-        {
-            var request = new CreateTestAnnotationRequest
-            {
-                Name = string.Empty,// textBoxName.Text,
-                Description = string.Empty,// textBoxDescription.Text,
-            };
-
-            try
-            {
-                await _sender.Send(request);
-
-                ClearFields();
-            }
-            catch (ValidationFailedException ex)
-            {
-                MessageBox.Show(ex.Message, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while registering the annotation: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void ButtonClose_Click(object sender, EventArgs e)
-        {
-            var testAnnotationListForm = _serviceProvider.GetRequiredService<TestAnnotationListForm>();
+            var testAnnotationListForm = _testAnnotationListForm ??
+                (_testAnnotationListForm = _serviceProvider.GetRequiredService<TestAnnotationListForm>());
 
             testAnnotationListForm.ShowDialog(this);
         }
 
+        private SettingsForm _settingsForm;
         private void ButtonSettings_Click(object sender, EventArgs e)
         {
-            var settingsForm = _serviceProvider.GetRequiredService<SettingsForm>();
+            var settingsForm = _settingsForm ??
+                (_settingsForm = _serviceProvider.GetRequiredService<SettingsForm>());
 
             settingsForm.ShowDialog(this);
         }
