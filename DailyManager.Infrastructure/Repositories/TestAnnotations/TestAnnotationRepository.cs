@@ -7,13 +7,13 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DailyManager.Infrastructure.Repositories
+namespace DailyManager.Infrastructure.Repositories.TestAnnotations
 {
-    public sealed class TesteAnnotationRepository : ITestAnnotationRepository
+    public sealed class TestAnnotationRepository : ITestAnnotationRepository
     {
         private readonly IDatabaseFactory _databaseFactory;
 
-        public TesteAnnotationRepository(IDatabaseFactory databaseFactory)
+        public TestAnnotationRepository(IDatabaseFactory databaseFactory)
         {
             _databaseFactory = databaseFactory;
         }

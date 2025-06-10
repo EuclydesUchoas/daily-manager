@@ -133,7 +133,9 @@
     <Compile Include="Database\Migrations\202506030034_Create_Table_TestAnnotations.cs" />
     <Compile Include="DependencyInjection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\TesteAnnotationRepository.cs" />
+    <Compile Include="Repositories\Companies\CompanyRepository.cs" />
+    <Compile Include="Repositories\Dailies\DailyRepository.cs" />
+    <Compile Include="Repositories\TestAnnotations\TestAnnotationRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

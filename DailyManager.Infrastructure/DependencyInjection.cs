@@ -1,7 +1,7 @@
 ﻿using DailyManager.Domain.Repositories.TestAnnotations;
 using DailyManager.Infrastructure.Database;
 using DailyManager.Infrastructure.Database.Factory;
-using DailyManager.Infrastructure.Repositories;
+using DailyManager.Infrastructure.Repositories.TestAnnotations;
 using FluentMigrator.Runner;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,7 +21,7 @@ namespace DailyManager.Infrastructure
 
         private static IServiceCollection RegisterRepositories(this IServiceCollection services)
         {
-            services.AddSingleton<ITestAnnotationRepository, TesteAnnotationRepository>();
+            services.AddSingleton<ITestAnnotationRepository, TestAnnotationRepository>();
 
             return services;
         }

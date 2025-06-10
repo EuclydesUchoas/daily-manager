@@ -47,6 +47,8 @@
     <Compile Include="Entities\TestAnnotations\TestAnnotation.cs" />
     <Compile Include="Entities\TestAnnotations\TestAnnotationBasic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Companies\ICompanyRepository.cs" />
+    <Compile Include="Repositories\Dailies\IDailyRepository.cs" />
     <Compile Include="Repositories\TestAnnotations\ITestAnnotationRepository.cs" />
   </ItemGroup>
   <ItemGroup />
