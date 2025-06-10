@@ -128,6 +128,8 @@
     <Compile Include="Database\Factory\DatabaseFactory.cs" />
     <Compile Include="Database\DatabaseHelper.cs" />
     <Compile Include="Database\Factory\IDatabaseFactory.cs" />
+    <Compile Include="Database\Migrations\202506092235_Create_Table_Dailies.cs" />
+    <Compile Include="Database\Migrations\202506092233_Create_Table_Companies.cs" />
     <Compile Include="Database\Migrations\202506030034_Create_Table_TestAnnotations.cs" />
     <Compile Include="DependencyInjection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
