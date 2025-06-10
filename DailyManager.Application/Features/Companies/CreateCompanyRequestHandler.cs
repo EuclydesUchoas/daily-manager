@@ -30,7 +30,6 @@ namespace DailyManager.Application.Features.Companies
             var company = request.ToDomain();
 
             var result = await _companyValidator.ValidateAsync(company);
-
             ValidationFailedException.ThrowIfValidationResultIsNotValid(result);
 
             company.Id = Guid.NewGuid();

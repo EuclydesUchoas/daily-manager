@@ -1,5 +1,6 @@
 ﻿using DailyManager.Application.Features.Companies;
 using DailyManager.Domain.Entities.Companies;
+
 namespace DailyManager.Application.Mappings.Companies
 {
     public static class CompanyMap

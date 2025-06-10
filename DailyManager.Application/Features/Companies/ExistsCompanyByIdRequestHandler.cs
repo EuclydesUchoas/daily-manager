@@ -1,27 +1,26 @@
 ﻿using DailyManager.Application.Meditator;
-using DailyManager.Domain.Entities.Companies;
 using DailyManager.Domain.Repositories.Companies;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace DailyManager.Application.Features.Companies
 {
-    public sealed class GetCompanyByIdRequestHandler : IRequestHandler<GetCompanyByIdRequest, Company>
+    public sealed class ExistsCompanyByIdRequestHandler : IRequestHandler<ExistsCompanyByIdRequest, bool>
     {
         private readonly ICompanyRepository _companyRepository;
 
-        public GetCompanyByIdRequestHandler(
+        public ExistsCompanyByIdRequestHandler(
             ICompanyRepository companyRepository
             )
         {
             _companyRepository = companyRepository;
         }
 
-        public async Task<Company> Handle(GetCompanyByIdRequest request, CancellationToken cancellationToken = default)
+        public async Task<bool> Handle(ExistsCompanyByIdRequest request, CancellationToken cancellationToken = default)
         {
-            var company = await _companyRepository.GetById(request.Id, cancellationToken);
+            var exists = await _companyRepository.ExistsById(request.Id, cancellationToken);
 
-            return company;
+            return exists;
         }
     }
 }

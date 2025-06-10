@@ -71,8 +71,16 @@
     <Compile Include="Features\Companies\CreateCompanyRequestHandler.cs" />
     <Compile Include="Features\Companies\GetAllCompanyRequest.cs" />
     <Compile Include="Features\Companies\GetAllCompanyRequestHandler.cs" />
+    <Compile Include="Features\Companies\ExistsCompanyByIdRequest.cs" />
     <Compile Include="Features\Companies\GetCompanyByIdRequest.cs" />
+    <Compile Include="Features\Companies\ExistsCompanyByIdRequestHandler.cs" />
     <Compile Include="Features\Companies\GetCompanyByIdRequestHandler.cs" />
+    <Compile Include="Features\Dailies\CreateDailyRequest.cs" />
+    <Compile Include="Features\Dailies\CreateDailyRequestHandler.cs" />
+    <Compile Include="Features\Dailies\GetAllDailyRequest.cs" />
+    <Compile Include="Features\Dailies\GetAllDailyRequestHandler.cs" />
+    <Compile Include="Features\Dailies\GetDailyByIdRequest.cs" />
+    <Compile Include="Features\Dailies\GetDailyByIdRequestHandler.cs" />
     <Compile Include="Features\TestAnnotations\GetAllTestAnnotationBasicRequest.cs" />
     <Compile Include="Features\TestAnnotations\GetAllTestAnnotationBasicRequestHandler.cs" />
     <Compile Include="Features\TestAnnotations\GetTestAnnotationByIdRequestHandler.cs" />
@@ -82,6 +90,7 @@
     <Compile Include="Features\TestAnnotations\CreateTestAnnotationRequestHandler.cs" />
     <Compile Include="Features\TestAnnotations\CreateTestAnnotationRequest.cs" />
     <Compile Include="Mappings\Companies\CompanyMap.cs" />
+    <Compile Include="Mappings\Dailies\DailyMap.cs" />
     <Compile Include="Mappings\TestAnnotations\TestAnnotationMap.cs" />
     <Compile Include="Meditator\IRequest.cs" />
     <Compile Include="Meditator\IRequestHandler.cs" />
@@ -90,6 +99,7 @@
     <Compile Include="Models\ValidationErrorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validations\Companies\CompanyValidator.cs" />
+    <Compile Include="Validations\Dailies\DailyValidator.cs" />
     <Compile Include="Validations\TestAnnotations\TestAnnotationValidator.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -102,8 +112,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\Dailies\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

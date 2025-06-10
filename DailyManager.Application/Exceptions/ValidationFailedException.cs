@@ -16,6 +16,11 @@ namespace DailyManager.Application.Exceptions
         {
         }
 
+        internal ValidationFailedException(ValidationErrorModel error)
+            : this("Validation failed.", new List<ValidationErrorModel>() { error })
+        {
+        }
+
         internal ValidationFailedException(string message, List<ValidationErrorModel> errors)
             : base(message)
         {

@@ -30,7 +30,6 @@ namespace DailyManager.Application.Features.TestAnnotations
             var testAnnotation = request.ToDomain();
 
             var result = await _testAnnotationValidator.ValidateAsync(testAnnotation);
-
             ValidationFailedException.ThrowIfValidationResultIsNotValid(result);
 
             testAnnotation.Id = Guid.NewGuid();
