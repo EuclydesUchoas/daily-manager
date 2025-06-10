@@ -2,7 +2,7 @@
 
 namespace DailyManager.Domain.Entities.TestAnnotations
 {
-    public sealed class TestAnnotation
+    public sealed class TestAnnotation : IEntity
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

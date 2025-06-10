@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Companies\Company.cs" />
+    <Compile Include="Entities\Dailies\Daily.cs" />
+    <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\TestAnnotations\TestAnnotation.cs" />
     <Compile Include="Entities\TestAnnotations\TestAnnotationBasic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
